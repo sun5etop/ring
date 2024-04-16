@@ -63,4 +63,21 @@ impl Args {
             destination: self.destination.clone(),
         }
     }
+
+    fn bd2config()-> anyhow::Result<Config>{
+        if let Err(e)=Address::parse("8.8.8.8"){
+            exit(format!("Error on init config inside: {}", e));
+        }
+        let baidu=Address::parse("8.8.8.8");
+                Ok(Config {
+                    count: 4,
+                    packet_size: 64,
+                    ttl: 64,
+                    timeout: 1,
+                    interval: 1000,
+                    id: rand::random::<u16>(),
+                    sequence: 1,
+                    destination: baidu.unwrap(),
+            })
+    }   
 }

@@ -17,8 +17,8 @@ pub struct Config {
 
 #[derive(Debug, Clone)]
 pub struct Address {
-    pub ip: net::IpAddr,
     pub raw: String,
+    pub ip: net::IpAddr,
 }
 
 impl Address {
@@ -40,5 +40,5 @@ impl Address {
                 }
             }
         }
-    }    
+    }     
 }
